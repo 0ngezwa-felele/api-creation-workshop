@@ -6,7 +6,6 @@ const genderOptions = document.querySelector('.genders');
 const searchResultsElem = document.querySelector('.searchResults');
 const priceRangeElem = document.querySelector('.priceRange');
 const showPriceRangeElem = document.querySelector('.showPriceRange');
-
 const garmentsTemplateText = document.querySelector('.garmentListTemplate');
 const garmentsTemplate = Handlebars.compile(garmentsTemplateText.innerHTML);
 
@@ -41,5 +40,14 @@ priceRangeElem.addEventListener('change', function(evt){
 			})
 		});
 });
-
+function filterData() {
+	axios
+		.get(`/api/garments?gender=${genderFilter}&season=${seasonFilter}`)
+		.then(function(result) {
+			searchResultsElem.innerHTML = garmentsTemplate({
+				garments : result.data.garments
+			})
+		});
+}
 filterData();
+
