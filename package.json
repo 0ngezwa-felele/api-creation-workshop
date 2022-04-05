@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/0ngezwa-felele/api-creation-workshop#readme",
   "engines":{
-    "node": "7.5.2.x"
+    "node": "7.5.x"
   }
 }
 
