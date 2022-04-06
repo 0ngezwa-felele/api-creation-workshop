@@ -51,3 +51,24 @@ function filterData() {
 }
 filterData();
 
+const domFields = {
+    description,
+    image,
+    gender,
+    season,
+    price
+  };
+  
+  axios.post('/api/garments', domFields)
+    .then((result) => {
+        console.log(result.data);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+	function myFunction() {
+		var x = document.getElementById("snackbar");
+	  
+		x.className = "show";
+	  		setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+	  }
